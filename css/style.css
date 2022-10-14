@@ -1,0 +1,167 @@
+/*Step 1: Set animation for logo*/
+#logo {
+    animation: logomove 5s; 
+}
+
+/*Step 1: Set size and opacity animation rules*/
+@keyframes logomove {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+}
+
+/*Step 2: Set Poppins font and background image for body element*/
+body {
+    font-family: 'Poppins', Serif;
+    background: url("../images/concrete_seamless.png"), #f1f1f1;
+}
+
+/*Step 3: Edit css for header tag to match example*/
+header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/*Step 4: Edit CSS for nav-links class to match example*/
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+} 
+
+/*Step 5: Style links to have same color after visited*/
+a:link, a:visited {
+    color: #0000EE;
+}
+
+/*Step 6: Use required styles for header elements that are direct children of card class*/
+.card > header {
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px 50px 0px 0px;
+}
+
+/*Step 7: Set intial size and match example for card class*/
+.card {
+    display: flex;
+    flex-basis: 450px;
+    flex-direction: column;
+    border-radius: 50px 50px 0px 0px;
+}
+
+/*Step 8: Use pricing class to center flex cards horizontally and vertically*/
+.pricing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*Step 9: Style images of gallery class with borders, margin, and width*/
+.gallery > img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/*Step 10: Match gallery class to example*/
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*Set media for screen size greater than 900px*/
+@media screen and (min-width: 900px) {
+
+    /*Step 11: Use flex-properties for header to match example*/
+    header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    /*Step 11: Set logo to align as left as possible*/
+    #logo {
+        justify-content: flex-start;
+    }
+
+    /*Step 11: Set nav_links class to match example*/
+    .nav_links {
+       flex-direction: row;
+    }
+
+    /*Step 12: Edit card class to match example, with initial size of 275px*/
+    .card {
+        flex-basis: 275px;
+    }
+
+    /*Step 12: Edit pricing class to match example*/
+    .pricing {
+        align-items: center;
+    }
+
+    /*Step 13: Modify first header to remain visible on top of the screen*/
+    body > header {
+        position: sticky;
+        top: 0;
+    }
+         
+    
+
+}
+
+/*Set media for when users prefer reduced motion*/
+@media (prefers-reduced-motion) {
+
+    /*Step 14: Logo class should appear but not be animated*/
+    #logo {
+        animation: none !important;
+    }
+}
+
+/*Set media for print view*/
+@media print {
+    
+    /*Step 15 & 16: Change font for body to Arial, and remove background image*/
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    /*Step 17: Set nav width to 100%*/
+    nav {
+        width: 100%;
+    }
+
+    /*Step 17: Set nav_links elements to be spaced across full width*/
+    .nav_links {
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+
+    /*Step 18: Set pricing so that elements align along the bottom*/
+    .pricing {
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    /*Step 19: Style card elements with border and flex-basis*/
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /*Step 20: No part of gallery is visible*/
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /*Step 21: Add thumbs-up entity to cards*/
+    .card ul li:nth-child(even)::after {
+        content: "\1F44D"
+    }
+}   
